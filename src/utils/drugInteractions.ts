@@ -174,7 +174,7 @@ export const getBlogArticles = (): BlogArticle[] => {
     {
       id: 'blog3',
       title: 'The Role of Pharmacists in Preventing Drug Interactions',
-      summary: 'Pharmacists are often the last line of defense against harmful drug interactions. Here's how they help.',
+      summary: "Pharmacists are often the last line of defense against harmful drug interactions. Here's how they help.",
       imageUrl: 'https://images.unsplash.com/photo-1577401152485-564236659422?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category: 'Healthcare',
       date: 'March 15, 2023',
