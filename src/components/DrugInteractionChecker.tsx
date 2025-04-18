@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Check, 
@@ -35,6 +34,7 @@ import {
   searchDrugs, 
   getInteractions 
 } from '@/utils/drugInteractions';
+import AlternativeDrugSuggestions from './AlternativeDrugSuggestions';
 
 const DrugInteractionChecker: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -47,7 +47,6 @@ const DrugInteractionChecker: React.FC = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
-  // Handle search input change
   useEffect(() => {
     if (searchQuery) {
       const results = searchDrugs(searchQuery);
@@ -57,7 +56,6 @@ const DrugInteractionChecker: React.FC = () => {
     }
   }, [searchQuery]);
 
-  // Focus input when search is opened
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       setTimeout(() => {
@@ -66,7 +64,6 @@ const DrugInteractionChecker: React.FC = () => {
     }
   }, [isSearchOpen]);
 
-  // Add a drug to the selected list
   const addDrug = (drug: Drug) => {
     if (!selectedDrugs.some(d => d.id === drug.id)) {
       const newSelectedDrugs = [...selectedDrugs, drug];
@@ -80,18 +77,15 @@ const DrugInteractionChecker: React.FC = () => {
     }
   };
 
-  // Remove a drug from the selected list
   const removeDrug = (drugId: string) => {
     setSelectedDrugs(selectedDrugs.filter(d => d.id !== drugId));
     
-    // Clear interactions if we've already checked
     if (isChecked) {
       setInteractions([]);
       setIsChecked(false);
     }
   };
 
-  // Check for interactions
   const checkInteractions = () => {
     if (selectedDrugs.length < 2) {
       toast({
@@ -103,7 +97,6 @@ const DrugInteractionChecker: React.FC = () => {
     }
 
     setIsLoading(true);
-    // Simulate API call
     setTimeout(() => {
       const drugIds = selectedDrugs.map(d => d.id);
       const foundInteractions = getInteractions(drugIds);
@@ -126,7 +119,6 @@ const DrugInteractionChecker: React.FC = () => {
     }, 1500);
   };
 
-  // Render severity icon
   const renderSeverityIcon = (severity: string) => {
     switch (severity) {
       case 'mild':
@@ -140,7 +132,6 @@ const DrugInteractionChecker: React.FC = () => {
     }
   };
 
-  // Get severity text class
   const getSeverityTextClass = (severity: string) => {
     switch (severity) {
       case 'mild':
@@ -157,7 +148,6 @@ const DrugInteractionChecker: React.FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className="space-y-6">
-        {/* Search and Selected Drugs */}
         <div className="space-y-4">
           <div className="relative">
             <div
@@ -216,7 +206,6 @@ const DrugInteractionChecker: React.FC = () => {
           </Button>
         </div>
 
-        {/* Interactions Results */}
         {isChecked && (
           <div className="animate-fade-in space-y-6">
             {interactions.length > 0 ? (
@@ -265,6 +254,12 @@ const DrugInteractionChecker: React.FC = () => {
                     </Card>
                   ))}
                 </div>
+                
+                {interactions.some(i => i.severity === 'severe') && (
+                  <AlternativeDrugSuggestions 
+                    drugIds={selectedDrugs.map(d => d.id)} 
+                  />
+                )}
               </>
             ) : (
               <Card className="pharma-card">
@@ -288,7 +283,6 @@ const DrugInteractionChecker: React.FC = () => {
         )}
       </div>
 
-      {/* Drug Search Dialog */}
       <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
         <div className="pharma-input flex items-center">
           <Search className="w-5 h-5 text-muted-foreground mr-2" />

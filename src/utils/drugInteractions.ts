@@ -1,4 +1,3 @@
-
 // Sample drug interaction data
 // In a real application, this would come from a medical API
 
@@ -249,4 +248,35 @@ export const getNearbyPharmacies = (): Pharmacy[] => {
       },
     },
   ];
+};
+
+// Function to get alternative drugs
+export const getAlternativeDrugs = (drugId: string): AlternativeDrug | null => {
+  // This is a simplified example. In a real application, this would come from a medical API
+  const alternativeMap: Record<string, AlternativeDrug> = {
+    'd1': {
+      originalDrugId: 'd1',
+      alternatives: [
+        { id: 'd3', name: 'Paracetamol' }
+      ],
+      reason: 'Paracetamol can be a safer alternative to Aspirin for pain relief when bleeding risk is a concern.'
+    },
+    'd10': {
+      originalDrugId: 'd10',
+      alternatives: [
+        { id: 'd13', name: 'Losartan' },
+        { id: 'd4', name: 'Lisinopril' }
+      ],
+      reason: 'For patients requiring anticoagulation, these medications might be suitable alternatives depending on the condition being treated.'
+    },
+    'd11': {
+      originalDrugId: 'd11',
+      alternatives: [
+        { id: 'd1', name: 'Aspirin' }
+      ],
+      reason: 'Low-dose aspirin might be an alternative antiplatelet agent in some cases.'
+    }
+  };
+
+  return alternativeMap[drugId] || null;
 };
