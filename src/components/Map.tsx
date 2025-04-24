@@ -60,10 +60,13 @@ const Map: React.FC = () => {
             <div className="absolute inset-0 flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center">
               <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>
               <div className="z-10 text-center px-6">
-                <Button className="bg-white text-pharma-blue hover:bg-white/90 shadow-lg">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  View Interactive Map
-                </Button>
+              <Button
+                className="bg-white text-pharma-blue hover:bg-white/90 shadow-lg"
+                onClick={() => window.open('https://pragnithp.github.io/NearbyPharma/', '_blank')}>
+                <MapPin className="w-4 h-4 mr-2" />
+                View Interactive Map
+              </Button>
+
                 <p className="mt-4 text-white text-shadow-sm">
                   In a complete implementation, an interactive map would display here showing nearby pharmacies.
                 </p>

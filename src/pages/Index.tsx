@@ -135,7 +135,7 @@ const Index = () => {
                 <div className="w-8 h-8 rounded-lg bg-pharma-blue flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search text-white"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </div>
-                <span className="font-semibold text-lg">MediCheck</span>
+                <span className="font-semibold text-lg">Pharma-Protect</span>
               </div>
               <p className="text-background/70 text-sm">
                 A tool for checking drug interactions and finding nearby pharmacies.
@@ -180,7 +180,7 @@ const Index = () => {
               Disclaimer: This tool is for informational purposes only and should not replace professional medical advice. Always consult with a healthcare provider.
             </p>
             <p className="mt-2">
-              &copy; {new Date().getFullYear()} MediCheck. All rights reserved.
+              &copy; {new Date().getFullYear()} Pharma-Protect. All rights reserved.
             </p>
           </div>
         </div>

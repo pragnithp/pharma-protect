@@ -43,7 +43,7 @@ const Header = () => {
           <div className="w-10 h-10 rounded-lg bg-pharma-blue-dark flex items-center justify-center">
             <Search className="text-white w-5 h-5" />
           </div>
-          <span className="font-semibold text-xl">MediCheck</span>
+          <span className="font-semibold text-xl">Pharma-Protect</span>
         </Link>
 
         {/* Desktop Navigation */}
