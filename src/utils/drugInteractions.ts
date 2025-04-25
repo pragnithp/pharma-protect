@@ -15,6 +15,7 @@ export interface Interaction {
 }
 
 // Sample drug database
+// Updated Sample drug database with 10 additional real drugs
 const drugDatabase: Drug[] = [
   { id: 'd1', name: 'Aspirin' },
   { id: 'd2', name: 'Ibuprofen' },
@@ -31,9 +32,49 @@ const drugDatabase: Drug[] = [
   { id: 'd13', name: 'Losartan' },
   { id: 'd14', name: 'Albuterol' },
   { id: 'd15', name: 'Gabapentin' },
+  { id: 'd16', name: 'Fluoxetine' },
+  { id: 'd17', name: 'Sertraline' },
+  { id: 'd18', name: 'Hydrochlorothiazide' },
+  { id: 'd19', name: 'Furosemide' },
+  { id: 'd20', name: 'Prednisone' },
+  { id: 'd21', name: 'Amlodipine' },
+  { id: 'd22', name: 'Tamsulosin' },
+  { id: 'd23', name: 'Cetirizine' },
+  { id: 'd24', name: 'Phenytoin' },
+  { id: 'd25', name: 'Montelukast' },
+  { id: 'd26', name: 'Diphenhydramine' }, // New drug
+  { id: 'd27', name: 'Metoprolol' },     // New drug
+  { id: 'd28', name: 'Ciprofloxacin' },   // New drug
+  { id: 'd29', name: 'Prednisolone' },    // New drug
+  { id: 'd30', name: 'Fexofenadine' },    // New drug
+  { id: 'd31', name: 'Naproxen' },        // New drug
+  { id: 'd32', name: 'Ezetimibe' },       // New drug
+  { id: 'd33', name: 'Doxycycline' },     // New drug
+  { id: 'd34', name: 'Ranitidine' },      // New drug
+  { id: 'd35', name: 'Trazodone' },       // New drug
+  { id: 'd36', name: 'Digoxin' },
+  { id: 'd37', name: 'Sildenafil' },
+  { id: 'd38', name: 'Methotrexate' },
+  { id: 'd39', name: 'Verapamil' },
+  { id: 'd40', name: 'Erythromycin' },
+  { id: 'd41', name: 'Fluconazole' },
+  { id: 'd42', name: 'Lorazepam' },
+  { id: 'd43', name: 'Amiodarone' },
+  // { id: 'd44', name: 'Cimetidine' },
+  // { id: 'd45', name: 'Atenolol' },
+  // { id: 'd46', name: 'Fentanyl' },
+  // { id: 'd47', name: 'Diazepam' },
+  // { id: 'd48', name: 'Carbamazepine' },
+  // { id: 'd49', name: 'Ketoconazole' },
+  // { id: 'd50', name: 'Rifampin' },
+  // { id: 'd51', name: 'Hydroxychloroquine' },
+  // { id: 'd52', name: 'Quetiapine' },
+  // { id: 'd53', name: 'Loratadine' },
+  // { id: 'd54', name: 'Alprazolam' },
+  // { id: 'd55', name: 'Clarithromycin' },
 ];
 
-// Sample interaction database
+// Updated Sample interaction database with new interactions
 const interactionDatabase: Interaction[] = [
   {
     id: 'i1',
@@ -84,7 +125,156 @@ const interactionDatabase: Interaction[] = [
     recommendation: 'This combination should be avoided unless prescribed by a specialist with very careful monitoring.',
     drugs: ['d10', 'd11'],
   },
+  {
+    id: 'i8',
+    severity: 'moderate',
+    description: 'Fluoxetine may increase the levels of warfarin, increasing the risk of bleeding.',
+    recommendation: 'Close monitoring of INR (International Normalized Ratio) is recommended.',
+    drugs: ['d16', 'd10'],
+  },
+  {
+    id: 'i9',
+    severity: 'mild',
+    description: 'Cetirizine and sertraline may increase the sedative effects when combined.',
+    recommendation: 'Use caution when driving or operating machinery.',
+    drugs: ['d23', 'd17'],
+  },
+  {
+    id: 'i10',
+    severity: 'severe',
+    description: 'Hydrochlorothiazide and furosemide may increase the risk of severe electrolyte imbalance when combined.',
+    recommendation: 'Monitor electrolyte levels closely and adjust dosages as necessary.',
+    drugs: ['d18', 'd19'],
+  },
+  // New interactions for added drugs
+  {
+    id: 'i11',
+    severity: 'moderate',
+    description: 'Diphenhydramine may increase the sedative effect of trazodone.',
+    recommendation: 'Avoid operating heavy machinery or driving when using these drugs together.',
+    drugs: ['d26', 'd35'],
+  },
+  {
+    id: 'i12',
+    severity: 'mild',
+    description: 'Metoprolol and ciprofloxacin may increase the blood pressure-lowering effects of metoprolol.',
+    recommendation: 'Monitor blood pressure regularly.',
+    drugs: ['d27', 'd28'],
+  },
+  {
+    id: 'i13',
+    severity: 'moderate',
+    description: 'Prednisolone and naproxen may increase the risk of gastrointestinal irritation or bleeding.',
+    recommendation: 'Avoid long-term use of these drugs together unless advised by a doctor.',
+    drugs: ['d29', 'd31'],
+  },
+  {
+    id: 'i14',
+    severity: 'severe',
+    description: 'Fexofenadine and ranitidine may increase the sedative effects.',
+    recommendation: 'Use caution when engaging in activities requiring alertness.',
+    drugs: ['d30', 'd34'],
+  },
+  {
+    id: 'i15',
+    severity: 'mild',
+    description: 'Ezetimibe and simvastatin together may increase the risk of muscle pain or weakness.',
+    recommendation: 'Monitor for signs of muscle damage and report any unusual symptoms.',
+    drugs: ['d32', 'd9'],
+  },
+  {
+    id: 'i16',
+    severity: 'moderate',
+    description: 'Doxycycline and metoprolol may increase the risk of low blood pressure.',
+    recommendation: 'Monitor blood pressure closely during co-administration.',
+    drugs: ['d33', 'd27'],
+  },
+  {
+    id: 'i17',
+    severity: 'moderate',
+    description: 'Fluoxetine and Sertraline, both SSRIs, may increase the risk of serotonin syndrome when used together.',
+    recommendation: 'Avoid concurrent use unless specifically directed by a healthcare provider with careful monitoring for serotonin syndrome symptoms.',
+    drugs: ['d16', 'd17']
+  },
+  {
+    id: 'i18',
+    severity: 'moderate',
+    description: 'Fluoxetine may increase the hypotensive effects of Amlodipine, leading to potential dizziness or fainting.',
+    recommendation: 'Monitor blood pressure closely and adjust Amlodipine dose if necessary.',
+    drugs: ['d16', 'd21']
+  },
+  {
+    id: 'i19',
+    severity: 'severe',
+    description: 'Fluoxetine can increase the plasma levels of Phenytoin, increasing the risk of Phenytoin toxicity.',
+    recommendation: 'Monitor Phenytoin levels closely and adjust the dose as needed. Consider alternative antidepressants.',
+    drugs: ['d16', 'd24']
+  },
+  {
+    id: 'i20',
+    severity: 'moderate',
+    description: 'Hydrochlorothiazide and Amlodipine may enhance hypotensive effects, increasing the risk of low blood pressure.',
+    recommendation: 'Monitor blood pressure regularly and adjust doses if hypotension occurs.',
+    drugs: ['d18', 'd21']
+  },
+  {
+    id: 'i21',
+    severity: 'moderate',
+    description: 'Furosemide and Prednisone may increase the risk of electrolyte imbalances, particularly hypokalemia.',
+    recommendation: 'Monitor electrolyte levels, especially potassium, and consider potassium supplementation if needed.',
+    drugs: ['d19', 'd20']
+  },
+  {
+    id: 'i22',
+    severity: 'moderate',
+    description: 'Prednisone and Prednisolone, both corticosteroids, may increase the risk of systemic side effects like hyperglycemia and immunosuppression  immunosuppression when used together.',
+    recommendation: 'Use the lowest effective dose and monitor for corticosteroid-related side effects.',
+    drugs: ['d20', 'd29']
+  },
+  {
+    id: 'i23',
+    severity: 'moderate',
+    description: 'Tamsulosin and Amlodipine may enhance hypotensive effects, increasing the risk of orthostatic hypotension.',
+    recommendation: 'Monitor for dizziness and advise the patient to rise slowly from sitting or lying positions.',
+    drugs: ['d21', 'd22']
+  },
+  {
+    id: 'i24',
+    severity: 'moderate',
+    description: 'Cetirizine and Diphenhydramine, both antihistamines, may cause additive sedative effects.',
+    recommendation: 'Advise patients to avoid activities requiring mental alertness, such as driving, when taking these drugs together.',
+    drugs: ['d23', 'd26']
+  },
+  {
+    id: 'i25',
+    severity: 'moderate',
+    description: 'Phenytoin may decrease the efficacy of Montelukast by inducing its metabolism.',
+    recommendation: 'Monitor asthma control and consider alternative leukotriene modifiers if needed.',
+    drugs: ['d24', 'd25']
+  },
+  {
+    id: 'i26',
+    severity: 'moderate',
+    description: 'Metoprolol and Amlodipine may enhance blood pressure-lowering effects, increasing the risk of hypotension.',
+    recommendation: 'Monitor blood pressure closely and adjust doses as needed.',
+    drugs: ['d21', 'd27']
+  },
+  {
+    id: 'i27',
+    severity: 'severe',
+    description: 'Ciprofloxacin may increase the risk of tendon rupture when combined with Prednisone or Prednisolone.',
+    recommendation: 'Avoid this combination if possible. If unavoidable, monitor for signs of tendon pain or swelling.',
+    drugs: ['d28', 'd20', 'd29']
+  },
+  {
+    id: 'i28',
+    severity: 'moderate',
+    description: 'Fexofenadine and Cetirizine, both antihistamines, may cause additive drowsiness or sedation.',
+    recommendation: 'Advise caution with activities requiring alertness and consider using a single antihistamine.',
+    drugs: ['d23', 'd30']
+  }
 ];
+
 
 // Function to search for drugs by name
 export const searchDrugs = (query: string): Drug[] => {
